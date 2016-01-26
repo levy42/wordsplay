@@ -138,7 +138,7 @@ LOGGING = {
             'propagate': True,
             'level':'DEBUG',
         },
-        'MYAPP': {
+        'ReMinder': {
             'handlers': ['file'],
             'level': 'DEBUG',
         },
