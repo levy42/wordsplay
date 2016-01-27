@@ -1,8 +1,14 @@
 from django.test import TestCase
 import json
+import pickle
 # Create your tests here.
 
 # test json serialization
-print(json.dumps({"name": "355", "pass": "34354"}))
-s = {"wrgvsvg" : "tyjyu"}
-print()
+
+
+class A(object):
+    def __init__(self):
+        self.a = 1
+        self.b = 2
+        self.c = 3
+

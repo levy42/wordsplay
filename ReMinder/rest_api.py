@@ -5,13 +5,30 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import ReMinder.api.users.users_manager as um
-from ReMinder.models import User
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 
 # user managing
+
+@csrf_exempt
+def login(request):
+    user = authenticate(username=request.GET["user_name"], password=request.GET["pass"])
+
+@csrf_exempt
+def get_users(request):
+    if request.user.is_authenticated():
+        print("access")
+    else:
+        print("no access")
+    users = um.get_all()
+    return HttpResponse(serializers.serialize('json', users))
+
+
 @csrf_exempt
 def register_user(request):
-    user = User(name=request.GET["user_name"], password=request.GET["pass"])
+    user = User.objects.create_user(request.GET["user_name"], '',
+                                    request.GET["pass"])
     um.register(user)
     return HttpResponse("ok")
 
@@ -21,11 +38,10 @@ def get_user(request, id):
     user = um.get(id)
     return HttpResponse(json.dumps({"name": user.name, "pass": user.password}))
 
+
 @csrf_exempt
 def delete_user(request, id):
     um.delete(id)
     return HttpResponse("ok")
 
 # note managing
-
-

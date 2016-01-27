@@ -1,6 +1,6 @@
 import logging
 from django.core import serializers
-from ReMinder.models import User
+from django.contrib.auth.models import User
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +18,7 @@ def delete(id):
 
 def edit(id, user):
     record = User.objects.get(pk=id)
-    record.name = user.name
+    record.username = user.username
     record.password = user.password
     record.save()
     logger.info("user upated: " + serializers.serialize("json", user))
@@ -28,3 +28,8 @@ def get(id):
     logger.info("get user with id =%s" % id)
     logger.debug("get user")
     return User.objects.get(pk=id)
+
+
+def get_all():
+    logger.debug("get users")
+    return User.objects.all()

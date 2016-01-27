@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^create/', rest.register_user),
     url(r'^get_user/(?P<id>.*)/$', rest.get_user),
+    url(r'^get_users/', rest.get_users)
 ]
