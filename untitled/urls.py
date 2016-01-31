@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.generic.edit import CreateView
+from django.contrib.auth.forms import UserCreationForm
 
 import ReMinder.rest_api as rest
 
@@ -22,5 +24,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^create/', rest.register_user),
     url(r'^get_user/(?P<id>.*)/$', rest.get_user),
-    url(r'^get_users/', rest.get_users)
+    url(r'^get_users/', rest.get_users),
+    url(r'^accounts/', include('registration.backends.hmac.urls')),
 ]

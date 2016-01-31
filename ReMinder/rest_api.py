@@ -7,6 +7,7 @@ from django.core import serializers
 import ReMinder.api.users.users_manager as um
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 
 # user managing
@@ -15,7 +16,8 @@ from django.contrib.auth import authenticate, login
 def login(request):
     user = authenticate(username=request.GET["user_name"], password=request.GET["pass"])
 
-@csrf_exempt
+
+@login_required
 def get_users(request):
     if request.user.is_authenticated():
         print("access")
@@ -33,13 +35,13 @@ def register_user(request):
     return HttpResponse("ok")
 
 
-@csrf_exempt
+@login_required
 def get_user(request, id):
     user = um.get(id)
-    return HttpResponse(json.dumps({"name": user.name, "pass": user.password}))
+    return HttpResponse(serializers.serialize("json", [user]))
 
 
-@csrf_exempt
+@login_required
 def delete_user(request, id):
     um.delete(id)
     return HttpResponse("ok")

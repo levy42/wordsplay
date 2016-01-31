@@ -6,9 +6,6 @@ import pickle
 # test json serialization
 
 
-class A(object):
-    def __init__(self):
-        self.a = 1
-        self.b = 2
-        self.c = 3
-
+results = [(player, 0) for player in [1,2,3,4]]
+for result in results:
+    result[1] = 0
