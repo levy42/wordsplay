@@ -2,7 +2,7 @@ import json
 import random
 
 
-ALPHABET = 'ReMinder.game.alphabet.%s'
+ALPHABET = 'wordsplay.game.alphabet.%s'
 
 
 class Words(object):

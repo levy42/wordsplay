@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ReMinder',
+    'wordsplay',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,6 +52,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'untitled.urls'
+LOGIN_URL = '/login'
 
 TEMPLATES = [
     {
@@ -139,7 +140,7 @@ LOGGING = {
             'propagate': True,
             'level':'DEBUG',
         },
-        'ReMinder': {
+        'wordsplay': {
             'handlers': ['file'],
             'level': 'DEBUG',
         },

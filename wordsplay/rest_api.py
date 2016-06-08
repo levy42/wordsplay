@@ -4,7 +4,7 @@ import random
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
-import ReMinder.api.users.users_manager as um
+import wordsplay.api.users.users_manager as um
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -46,4 +46,3 @@ def delete_user(request, id):
     um.delete(id)
     return HttpResponse("ok")
 
-# note managing

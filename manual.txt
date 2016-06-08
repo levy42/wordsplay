@@ -1,0 +1,4 @@
+python manage.py makemigrations
+python manage.py sqlmigrate <number>
+python manage.py migrate
+python manage.py createsuperuser
