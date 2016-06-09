@@ -151,5 +151,6 @@ LOGGING = {
 # Accounting
 
 ACCOUNT_ACTIVATION_DAYS = 7
-LOGIN_REDIRECT_URL = ""
+LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "/auth/login"
 

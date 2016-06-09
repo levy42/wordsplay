@@ -17,21 +17,17 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
-from wordsplay.views import HomeView
-from django.contrib.auth import views as auth_views
-from django.contrib.auth.views import login
+from wordsplay.views import home
+from registration import auth_urls
+from registration.backends.model_activation import urls as registration_urls
 from wordsplay.views import test
 
 import wordsplay.rest_api as rest
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^create/', rest.register_user),
-    url(r'^get_user/(?P<id>.*)/$', rest.get_user),
-    url(r'^get_users/', rest.get_users),
-    # url(r'^accounts/', include('registration.backends.hmac.urls')),
-    # url(r'^$', HomeView.as_view(), name='home'),
-    # url(r'^accounts/login/$', auth_views.login),
-    url(r'^test/', test),
-    url(r'^login/$', login, {'template_name': 'admin/login.html'})
+    url(r'^$', home, name='index'),
+    url(r'^auth/', include(auth_urls)),
+    url(r'^auth/', include(registration_urls)),
+    url(r'^test/', test)
 ]
