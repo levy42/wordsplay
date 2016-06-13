@@ -15,19 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.views.generic.edit import CreateView
-from django.contrib.auth.forms import UserCreationForm
 from wordsplay.views import home
 from registration import auth_urls
-from registration.backends.model_activation import urls as registration_urls
-from wordsplay.views import test
+from registration.backends.simple import urls as registration
+from wordsplay.views import *
 
 import wordsplay.rest_api as rest
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', home, name='index'),
+    url(r'^$', home, name='home'),
+    # auth and registration
     url(r'^auth/', include(auth_urls)),
-    url(r'^auth/', include(registration_urls)),
-    url(r'^test/', test)
+    url(r'^auth/', include(registration)),
+    # user profiles
+    url(r'^profile/', user_profile, name='profile')
 ]
