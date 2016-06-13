@@ -19,6 +19,7 @@ from wordsplay.views import home
 from registration import auth_urls
 from registration.backends.simple import urls as registration
 from wordsplay.views import *
+from wordsplay.rest_api import *
 
 import wordsplay.rest_api as rest
 
@@ -29,5 +30,9 @@ urlpatterns = [
     url(r'^auth/', include(auth_urls)),
     url(r'^auth/', include(registration)),
     # user profiles
-    url(r'^profile/', user_profile, name='profile')
+    url(r'^profile/', user_profile, name='profile'),
+    # games
+    url(r'^game/requests/', get_game_requests),
+    url(r'^game/apply/(?P<id>[0-9]{4})', apply_request),
+    url(r'^game/create/', create_game_request)
 ]
