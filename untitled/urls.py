@@ -34,5 +34,6 @@ urlpatterns = [
     # games
     url(r'^game/requests/', get_game_requests),
     url(r'^game/apply/(?P<id>[0-9]{4})', apply_request),
-    url(r'^game/create/', create_game_request)
+    url(r'^game/create/', create_game_request),
+    url(r'^game/ring/', games_requests),
 ]

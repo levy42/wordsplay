@@ -12,7 +12,7 @@ from wordsplay.game import game_manager as gm
 
 def create_game_request(request):
     return HttpResponse(
-        gm.create_game_request(request.user, request.GET.get('time')))
+            gm.create_game_request(request.user, request.GET.get('time')))
 
 
 def cencel_game_request(request):
@@ -20,7 +20,12 @@ def cencel_game_request(request):
 
 
 def get_game_requests(request):
-    return HttpResponse(str(gm.get_game_requests(request.user)))
+    game_requests = gm.get_game_requests(request.user)
+    result = map(
+        lambda r: dict(id=r.user.id, username=r.user.username,
+                       time=r.move_time),
+        game_requests.values())
+    return HttpResponse(str(result))
 
 
 def apply_request(request):
