@@ -2,6 +2,7 @@ import time
 
 request_time_expiration = 120
 game_requests = {}
+move_time_cases = [120, 60, 45, 30, 15]
 
 
 class GameRequest(object):

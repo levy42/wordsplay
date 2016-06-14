@@ -1,34 +1,46 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
 {% load i18n %}
 {% block content %}
-<div class="container">
-  <h2>Striped Rows</h2>
-  <p>The .table-striped class adds zebra-stripes to a table:</p>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <div class="container">
+        <h2>Find your oponent!</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>User</th>
+                <th>Time</th>
+                <th>#</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for g in game_requests %}
+                <tr>
+                    <td>{{ g.user }}</td>
+                    <td>{{ g.move_time }}</td>
+                    <td>
+                        {% if user.id == g.user.id %}
+                            <a class="btn btn-danger"
+                               href="/game/action?action=cencel"><i
+                                    class="glyphicon glyphicon-remove"></i>Cencel
+                            </a>
+                        {% else %}
+                            <button class="btn btn-primary btn-success"><i
+                                    class="glyphicon glyphicon-resize-small"></i>Apply
+                            </button>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="col-xs-2">
+            <select class="form-control" id="timeSelect" title="Move time">
+                <option value="" selected disabled>Move time</option>
+                {% for time in move_time_cases %}
+                    <option>{{ time }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <a class="btn btn-primary" onclick="create_game()"
+           href='#'><i class="glyphicon glyphicon-plus"></i>Create</a></li>
+    </div>
 {% endblock %}
