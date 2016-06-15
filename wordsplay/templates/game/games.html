@@ -3,6 +3,10 @@
 {% block content %}
     <div class="container">
         <h2>Find your oponent!</h2>
+        <button class="btn btn-success" data-toggle="tooltip"
+                title="Click to start searching for random opponent">Find
+            randomly!
+        </button>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -13,21 +17,24 @@
             </thead>
             <tbody>
             {% for g in game_requests %}
-                <tr>
+                <tr {% if user.id == g.user.id %} class = 'info' {% endif %}>
                     <td>{{ g.user }}</td>
                     <td>{{ g.move_time }}</td>
-                    <td>
-                        {% if user.id == g.user.id %}
+                    {% if user.id == g.user.id %}
+                        <td>
                             <a class="btn btn-danger"
                                href="/game/action?action=cencel"><i
                                     class="glyphicon glyphicon-remove"></i>Cencel
                             </a>
-                        {% else %}
-                            <button class="btn btn-primary btn-success"><i
+                        </td>
+                    {% else %}
+                        <td>
+                            <a href="/game/apply?id={{ g.user.id }}"
+                               class="btn btn-primary btn-success"><i
                                     class="glyphicon glyphicon-resize-small"></i>Apply
-                            </button>
-                        {% endif %}
-                    </td>
+                            </a>
+                        </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>
@@ -40,7 +47,7 @@
                 {% endfor %}
             </select>
         </div>
-        <a class="btn btn-primary" onclick="create_game()"
+        <a class="btn btn-success" onclick="create_game()"
            href='#'><i class="glyphicon glyphicon-plus"></i>Create</a></li>
     </div>
 {% endblock %}

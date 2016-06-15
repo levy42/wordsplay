@@ -2,10 +2,17 @@
 {% load i18n %}
 
 {% block content %}
-<form method="post" action=".">
-  {% csrf_token %}
-  {{ form.as_p }}
+    <div class="row" style="margin-top: 2%">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <form method="post" action=".">
+                {% csrf_token %}
+                {{ form.as_p }}
 
-  <input type="submit" value="{% trans 'Submit' %}" />
-</form>
+                <input class="btn btn-success" type="submit"
+                       value="{% trans 'Go it!' %}"/>
+            </form>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
 {% endblock %}

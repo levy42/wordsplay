@@ -4,6 +4,8 @@
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" type="image/png"
+          href="{% static 'src/LogoMakr-mini.png' %}"/>
     <link rel="stylesheet"
           href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet"
@@ -32,7 +34,8 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href={% url 'home' %}><img
-                    src="{% static "src/LogoMakr.png" %}" height="180%"></a>
+                    src="{% static "src/LogoMakr-mini-inversed.png" %}"
+                    height="180%"></a>
             <ul class="nav navbar-nav">
                 <li><a href={% url 'ring' %}>New game</a></li>
                 <li><a href={% url 'ring' %}>My games</a></li>
@@ -50,7 +53,8 @@
                     <a href="#" class="dropdown-toggle"
                        data-toggle="dropdown" role="button"
                        aria-haspopup="true"
-                       aria-expanded="false"><i class="glyphicon glyphicon-certificate"></i></a>
+                       aria-expanded="false"><i
+                            class="glyphicon glyphicon-certificate"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'profile' %}">My profile</a>
                         </li>

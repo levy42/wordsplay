@@ -33,9 +33,10 @@ urlpatterns = [
     url(r'^profile/', user_profile, name='profile'),
     # games
     url(r'^game/requests/', get_game_requests),
-    url(r'^game/apply/(?P<id>[0-9]{4})', apply_request),
+    url(r'^game/apply/', apply_game_request, name='apply'),
     url(r'^game/create/', create_game_request),
     url(r'^game/ring/', games_requests, name='ring'),
     url(r'^game/action', games_action,
         name='game_action'),
+    url(r'^game/game/', game, name='game'),
 ]
