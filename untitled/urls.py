@@ -20,6 +20,8 @@ from registration import auth_urls
 from registration.backends.simple import urls as registration
 from wordsplay.views import *
 from wordsplay.rest_api import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 import wordsplay.rest_api as rest
 
@@ -39,4 +41,5 @@ urlpatterns = [
     url(r'^game/action', games_action,
         name='game_action'),
     url(r'^game/game/', game, name='game'),
-]
+    url(r'^test/', test),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

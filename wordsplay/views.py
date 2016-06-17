@@ -11,7 +11,6 @@ def home(request, *args, **kwargs):
     return render(request, 'index.html')
 
 
-@login_required
 def test(request, *args, **kwargs):
     return render(request, 'test.html')
 
