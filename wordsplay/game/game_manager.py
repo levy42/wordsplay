@@ -1,8 +1,10 @@
 import time
+import game
 
 request_time_expiration = 120
 game_requests = {}
 move_time_cases = [120, 60, 45, 30, 15]
+games = {}
 
 
 class GameRequest(object):
@@ -26,7 +28,10 @@ def get_game_requests(user):
 
 
 def start_game(user1, user2):
-    pass
+    new_game = game.Words([user1.name, user2.name], 5, 'UA')
+    start_word = new_game.start_word
+    return start_word
+
 
 
 def apply_request(applier, user_id):
