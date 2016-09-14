@@ -1,31 +1,12 @@
-
 .logo {
-   color: #879d4e
+    color: #879d4e
 }
 
 .block {
-
-}
-
-.block-sq-lg {
-  width: 150px !important;
-  height: 150px !important;
-}
-
-.block-sq {
-  width: 100px !important;
-  height: 100px !important;
-  font-size: 10px;
-}
-
-.block-sq-sm {
-  width: 50px !important;
-  height: 50px !important;
-  font-size: 10px;
-}
-
-.block-sq-xs {
-  width: 25px !important;
-  height: 25px !important;
-  padding:2px;
+    width: 100px !important;
+    height: 100px !important;
+    font-size: 40px;
+    text-align: center;
+    border: dashed;
+    cursor: move;
 }

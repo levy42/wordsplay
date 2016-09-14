@@ -1,7 +1,4 @@
 /**
- * Created by vitaliy on 16.06.16.
- */
-/**
  * Restful Resources service for AngularJS apps
  * @version v1.5.2 - 2016-02-08 * @link https://github.com/mgonto/restangular
  * @author Martin Gontovnikas <martin@gon.to>
