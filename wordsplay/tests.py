@@ -1,3 +1,3 @@
-
+import wordsplay.game.game
 
 

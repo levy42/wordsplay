@@ -10,3 +10,4 @@ def create_game(user1, user2):
 
 def get_games(user):
     return Game.objects.filter(user1=user) + Game.objects.filter(user2=user)
+

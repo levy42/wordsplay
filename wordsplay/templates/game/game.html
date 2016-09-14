@@ -1,53 +1,54 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}
+<div ng-app="MyApp">
+
+    <p>Input something in the input box:</p>
+    <p>Name : <input type="text" ng-model="name" placeholder="Enter name here">
+    </p>
+</div>
     <div class="container" xmlns="http://www.w3.org/1999/html">
         <h2>Your opponent is {{ opponent }}</h2>
         <table class="table">
             <tbody>
             <tr>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+            </tr>
+           <tr>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+            </tr>
+             <tr>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+            </tr>
+              <tr>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
             </tr>
             <tr>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-            </tr>
-            <tr>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-            </tr>
-            <tr>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-            </tr>
-            <tr>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-            </tr>
-            <tr>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
-                <td><input class="form-control"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
+                <td><input class="block-sq-sm"></td>
             </tr>
             </tbody>
         </table>
     </div>
+
+</div>
 {% endblock %}

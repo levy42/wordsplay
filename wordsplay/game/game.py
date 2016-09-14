@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
-import json
+import os
 import random
 
+from untitled.settings import BASE_DIR
 
-ALPHABET = 'wordsplay.game.alphabet.%s'
+
+ALPHABET = 'wordsplay/game/alphabet/%s'
 
 
 class Words(object):
     def __init__(self, players, n, language, word=None):
         # check if n is odd, game rules requires that
-        if  n & 1:
+        if not n & 1:
             raise Exception('Not valid board size, it must be odd!')
         # check if initial word has the same lenght as board, it must cover it
         if word and len(word) != n:
@@ -19,7 +21,7 @@ class Words(object):
         self.players = players
         self.board = [[0 for i in range(n)] for j in range(n)]
         # put initial word to the board
-        self.board[n/2]= [word[i] for i in word]
+        self.board[n/2] = [i for i in word]
         # shuffle player to change their move order
         random.shuffle(players)
         self.words = {player: [] for player in players}
@@ -29,8 +31,8 @@ class Words(object):
         self.language = language
         self.cells_left = n * n - n
         self.moves = 0
-        with open(ALPHABET % language) as data:
-            self.alphabet = json.load(data)
+        with open(os.path.join(BASE_DIR, ALPHABET % language)) as data:
+            self.alphabet = data.readlines()
 
     def move(self, player, coord, letter):
         if player != self.players[self.current_pl]:
@@ -79,7 +81,3 @@ class Word(object):
 
 def generate_start_word(n):
     return 'ПОХЕР'
-
-
-
-

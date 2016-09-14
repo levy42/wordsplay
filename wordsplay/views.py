@@ -48,8 +48,9 @@ def game(request):
 @login_required
 def apply_game_request(request):
     oponent = gm.game_requests[int(request.GET.get('id'))].user
-    gm.start_game(request.user, oponent)
+    word = gm.start_game(request.user, oponent)
     context = RequestContext(request, {
-        'opponent': oponent
+        'opponent': oponent,
+        'word': word
     })
     return render(request, 'game/game.html', context)

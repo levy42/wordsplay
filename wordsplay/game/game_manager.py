@@ -28,7 +28,7 @@ def get_game_requests(user):
 
 
 def start_game(user1, user2):
-    new_game = game.Words([user1.name, user2.name], 5, 'UA')
+    new_game = game.Words([user1.username, user2.username], 5, 'ua')
     start_word = new_game.start_word
     return start_word
 
